@@ -1,0 +1,84 @@
+.inscription-page {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .inscription-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .inscription-form {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .inscription-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .inscription-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .clouds {
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .cloud {
+    width: 120px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .cloud:nth-child(1) {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .cloud:nth-child(2) {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .cloud:nth-child(3) {
+    top: 30px;
+    right: 20px;
+  }
+  
