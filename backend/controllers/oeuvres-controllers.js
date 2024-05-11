@@ -1,5 +1,6 @@
-const { OEUVRES } = require("../models/oeuvres-models");
+const { Oeuvres } = require("../models/oeuvres-models");
 const uuid = require("uuid");
+
 
 let EX_OEUVRES = [
   {
@@ -10,7 +11,7 @@ let EX_OEUVRES = [
 
 // Contrôleur pour obtenir tous les oeuvres
 const getOeuvres = (req, res, next) => {
-  res.json({ oeuvres: OEUVRES });
+  res.json({ oeuvres: EX_OEUVRES });
 };
 
 // Contrôleur pour obtenir tous les oeuvres depuis la base de données
@@ -44,7 +45,7 @@ const getOeuvreById = async (req, res, next) => {
 
 // Contrôleur pour ajouter une oeuvre
 const ajouterOeuvre = async (req, res, next) => {
-  const { titre, genre, description, dateDeSortie } = req.body;
+  const { titre, description } = req.body;
 
   const nouvelleOeuvre = new Oeuvres({
     titre,
@@ -62,7 +63,7 @@ const ajouterOeuvre = async (req, res, next) => {
 
 // Contrôleur pour modifier une oeuvre
 const modifierOeuvre = async (req, res, next) => {
-  const { titre, genre, description, dateDeSortie } = req.body;
+  const { titre, description } = req.body;
   const oeuvreId = req.params.id;
 
   let oeuvre;
