@@ -79,7 +79,10 @@ export default function Connexion() {
           <button className="button-connexion" type="submit">
             Connexion
           </button>
-          <button className="button-inscription">Inscription</button>
+          <button className="button-inscription">
+          <Link to="/inscription">Inscription</Link>
+          </button>
+          
         </div>
       </form>
 
