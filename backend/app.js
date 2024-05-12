@@ -5,7 +5,8 @@ const artistesRoutes = require('./routes/artistes-routes');
 const errorHandler = require('./handler/error-handler');
 
 const app = express();
-
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/projetsynthese-4a5_projetsynthese_mamounecalin";
 //Parse le code entrant pour ajouter une propriété body sur la request
 app.use(express.json());
 // ce middleware ne rtourne pas de reponse mais va ajoute run header

@@ -14,7 +14,7 @@ import ErreurPage from "../pages/ErreurPage";
 import ModifierProfilePage from "../pages/ModificationProfilePage";
 import OeuvreAjoutePage from "../pages/OeuvreAjoutePage";
 import ListeOeuvresPage from "../pages/ListeOeuvresPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthentificationContexte } from "./contexte/AuthentificationContext";
 import ReactRouterDom from "../";
 
@@ -89,7 +89,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [data, setData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   const login = () => {
     setIsLoggedIn(true);
   };
@@ -97,7 +99,22 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  if (isLoggedIn)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const reponse = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "message/"
+        );
+        const jsonData = await reponse.json();
+        setData(jsonData.messages);
+      }catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (isLoggedIn) {
     return (
       <AuthentificationContexte.Provider
         value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
@@ -105,7 +122,7 @@ function App() {
         <RouterProvider router={routerLogin} />
       </AuthentificationContexte.Provider>
     );
-
+  }else{
   return (
     <AuthentificationContexte.Provider
       value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
@@ -113,6 +130,7 @@ function App() {
       <RouterProvider router={router} />
     </AuthentificationContexte.Provider>
   );
+}
 }
 
 export default App;
