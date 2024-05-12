@@ -1,0 +1,40 @@
+/* image.css */
+
+.image-container {
+    display: inline-block;
+    position: relative;
+    max-width: 100px;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid #3498db;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .image-container:hover .image {
+    transform: scale(1.1);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .image-container:hover .image-overlay {
+    opacity: 1;
+  }
